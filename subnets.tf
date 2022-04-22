@@ -49,3 +49,13 @@ resource "aws_subnet" "data" {
         Name = "talent-academy-data-a"
     }
 }
+
+resource "aws_subnet" "data-b" {
+    vpc_id = aws_vpc.main.id
+    cidr_block = "192.168.4.0/24"
+    availability_zone = "eu-west-1c"
+
+    tags = {
+        Name = "talent-academy-data-b"
+    }
+}
