@@ -30,7 +30,12 @@ resource "aws_subnet" "private" {
     }
 }
 
-resource "aws_subnet" "private-b" {
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id       = aws_vpc.main.id
+  service_name = "com.amazonaws.us-west-2.s3"
+}
+
+resource "aws_subnet" "private_b" {
     vpc_id = aws_vpc.main.id
     cidr_block = "192.168.20.0/23"
     availability_zone = "eu-west-1c"
